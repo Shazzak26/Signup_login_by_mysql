@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(to right, #d4b353, #7a7575);
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            position: relative;
+            background-color: #e0dede;
+            border: 3px solid #423838;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        label {
+            font-size: 20px;
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input[type=email], input[type=text] {
+            width: 100%;
+            font-size: 15px;
+            margin: 8px 0;
+            padding: 12px;
+            border: 2px solid #b9097f;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=radio] {
+            height: 18px;
+            width: 18px;
+        }
+
+        button {
+            background-color: #c3f733;
+            width: 100%;
+            padding: 15px;
+            color: black;
+            border: none;
+            border-radius: 4px;
+            font-size: 15px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #a6e22a;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+        }
+
+        img.avatar {
+            width: 10%;
+            border-radius: 50%;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Bubbles animation */
+        .bubble {
+            position: absolute;
+            background-color: #c3f733;
+            border-radius: 50%;
+            animation: float 5s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="post">
+        {% csrf_token %}
+        {% load static %}
+        <div class="imgcontainer">
+            <img src="{% static 'avatar_img2.png' %}" alt="Avatar" class="avatar">
+        </div>
+        <div class="container">
+            <label for='first_name'><b>First Name:</b></label>
+            <input type='text' placeholder="Enter your first name" name='first_name' required><br>
+            <label for='last_name'><b>Last Name:</b></label>
+            <input type='text' placeholder='Enter your last name' name='last_name' required><br>
+            <label for='sex'><b>Sex:</b></label>
+            <input type='radio' name='sex' value='male' required>
+            <label><b>Male</b></label>
+            <input type='radio' name='sex' value='female' required>
+            <label><b>Female</b></label><br>
+            <label for='email'><b>Email Id:</b></label>
+            <input type="email" placeholder="Enter email" name="email" required><br>
+            <label for='password'><b>Password:</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required><br>
+            <button type="submit"><b>Signup</b></button><br>
+            Already have an account? <a href="http://localhost:8000/login/">Login</a>
+        </div>
+    </form>
+
+    <!-- Bubbles -->
+    <div class="bubble" style="top: 30%; left: 10%;"></div>
+    <div class="bubble" style="top: 60%; left: 40%;"></div>
+    <div class="bubble" style="top: 15%; left: 70%;"></div>
+    <div class="bubble" style="top: 80%; left: 90%;"></div>
+    <!-- Add more bubbles as needed -->
+
+</body>
+</html>
